@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-# import pandas as pd
 from classify import classifyImages, species_list
 
 
