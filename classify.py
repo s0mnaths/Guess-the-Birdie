@@ -1,6 +1,7 @@
 import torch
 import torchvision.transforms as tt
 from model import WhatBirdie
+import pandas as pd
 
 def classifyImages(image, weights_file):
     # Load the model
@@ -29,3 +30,7 @@ def classifyImages(image, weights_file):
 
     # Retrieve the class label
     return preds[0].item()
+
+
+# Getting the class label
+species_list = pd.read_csv("species.csv")
