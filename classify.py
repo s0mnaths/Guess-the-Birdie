@@ -13,9 +13,12 @@ def classifyImages(image, weights_file):
             # model = torch.load("weights91.pth")
     
     # Transform the image to feed into the model (ToTensor, normalize)
+    x, y = image.size
+    minsize = min(x, y)
+
     stats = ((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
-    transform = tt.Compose([tt.Resize(256),
-                            tt.CenterCrop(224),
+    transform = tt.Compose([tt.CenterCrop(minsize),
+                            tt.Resize(224),
                             tt.ToTensor(),
                             tt.Normalize(*stats,inplace=True)
                             ])

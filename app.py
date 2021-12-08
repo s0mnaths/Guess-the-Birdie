@@ -14,4 +14,3 @@ if uploaded_file is not None:
     label = classifyImages(image, 'weights91.pth')
     species = species_list.iloc[label, 1]
     st.header(species)
-    print(species)
