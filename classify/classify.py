@@ -3,13 +3,10 @@ import torchvision.transforms as tt
 from model import WhatBirdie
 import pandas as pd
 
-def classifyImages(image, weights_file):
-    # Load the model
-    
+def classifyImages(image, weights_file):    
     model = WhatBirdie()
     model.load_state_dict(torch.load('weights91.pth', map_location='cpu'))
     
-    # Transform the image to feed into the model (ToTensor, normalize)
     x, y = image.size
     maxsize = max(x, y)
 
@@ -23,8 +20,6 @@ def classifyImages(image, weights_file):
 
     test_image = torch.unsqueeze(transform(image), 0)
 
-
-    # Predict
     output = model(test_image)
     _, preds  = torch.max(output, dim=1)   # torch.max -> Pick index with highest probability
 
@@ -32,5 +27,5 @@ def classifyImages(image, weights_file):
     return preds[0].item()
 
 
-# Getting the class label
-species_list = pd.read_csv("species.csv")
+# Getting the class label classes/species.csv
+species_list = pd.read_csv("classes/species.csv")
