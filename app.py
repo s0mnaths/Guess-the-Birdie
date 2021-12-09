@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 from classify import classifyImages, species_list
+from detect import detectBird
 
 
 st.title("Bird Species Classification")
@@ -9,8 +10,12 @@ uploaded_file = st.file_uploader("Upload an image ...", type="jpg")
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded image.', use_column_width=True)
-    st.write("")
+    
+    st.write("Cropped image:")
+    birdImg = detectBird(image)
+    st.image(birdImg, caption='Bird detected.', use_column_width=True)
+    
     st.write("The bird species is:")
-    label = classifyImages(image, 'weights91.pth')
+    label = classifyImages(birdImg, 'weights91.pth')
     species = species_list.iloc[label, 1]
     st.header(species)

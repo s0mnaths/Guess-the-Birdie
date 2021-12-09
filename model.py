@@ -1,6 +1,6 @@
 from torch import nn
 import torch.nn.functional as F
-
+from torchvision.models import detection
 
 class WhatBirdie(nn.Module):
     def __init__(self):
@@ -75,3 +75,5 @@ class WhatBirdie(nn.Module):
         out = self.FConnected(out)   
 
         return out
+
+frcnn = detection.fasterrcnn_resnet50_fpn(pretrained=True)
