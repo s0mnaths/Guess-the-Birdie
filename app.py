@@ -16,6 +16,6 @@ if uploaded_file is not None:
     st.image(birdImg, caption='Bird detected.', use_column_width=True)
 
     st.write("The bird species is:")
-    label = classifyImages(birdImg, 'checkpoints/classification_checkpoint.pth')
+    label = classifyImages(birdImg)
     species = species_list.iloc[label, 1]
     st.header(species)

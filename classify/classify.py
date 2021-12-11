@@ -3,7 +3,7 @@ import torchvision.transforms as tt
 from .model import WhatBirdie 
 import pandas as pd
 
-def classifyImages(image, weights_file):    
+def classifyImages(image):    
     model = WhatBirdie()
     model.load_state_dict(torch.load('./checkpoints/classification_checkpoint.pth', map_location='cpu'))
     
@@ -20,6 +20,7 @@ def classifyImages(image, weights_file):
 
     test_image = torch.unsqueeze(transform(image), 0)
 
+    model.eval()
     output = model(test_image)
     _, preds  = torch.max(output, dim=1)   # torch.max -> Pick index with highest probability
 
