@@ -1,4 +1,4 @@
-from model import frcnn
+from .model import frcnn
 import torch
 import torchvision.transforms as tt
 import numpy as np

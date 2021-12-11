@@ -1,11 +1,11 @@
 import torch
 import torchvision.transforms as tt
-from model import WhatBirdie
+from .model import WhatBirdie 
 import pandas as pd
 
 def classifyImages(image, weights_file):    
     model = WhatBirdie()
-    model.load_state_dict(torch.load('weights91.pth', map_location='cpu'))
+    model.load_state_dict(torch.load('./checkpoints/classification_checkpoint.pth', map_location='cpu'))
     
     x, y = image.size
     maxsize = max(x, y)
