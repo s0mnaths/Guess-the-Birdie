@@ -9,7 +9,7 @@ def detectBird(image):
     transform = tt.ToTensor()
     
     tensorImg = torch.unsqueeze(transform(image), 0)
-    frcnn.load_state_dict(torch.load('https://github.com/s0mnaths/Guess-the-Birdie/blob/master/checkpoints/fasterrcnn_resnet50_fpn_coco-258fb6c6.pth', map_location='cpu'))
+    frcnn.load_state_dict(torch.load('checkpoints/frcnn50_checkpoint.pth', map_location='cpu'))
     frcnn.eval()
     output = frcnn(tensorImg)
 

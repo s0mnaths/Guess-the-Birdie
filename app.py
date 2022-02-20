@@ -11,10 +11,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded image.', use_column_width=True)
     
-    st.write("Cropped image:")
     birdImg = detectBird(image)
-    st.image(birdImg, caption='Bird detected.', use_column_width=True)
-
     st.write("The bird species is:")
     label = classifyImages(birdImg)
     species = species_list.iloc[label, 1]
