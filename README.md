@@ -5,21 +5,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 ### Classifying Bird Species from bird images using PyTorch
 
-
-The model architecture used is similar to Resnet9 but smaller and faster. Few convolutional layers with residual layers in between them, along with batch normalization is used. It is trained using PyTorch and then converted to **ONNX** format for easy deplyment using Heroku.
+The model architecture used is similar to Resnet9 but smaller and faster. Few convolutional layers with residual layers in between them, along with batch normalization is used. It is trained using PyTorch and then converted to **ONNX** format for easy deplyment using Heroku. For the UI, **Streamlit** has been used.
 
 ## Dataset 📂
 
@@ -39,8 +27,4 @@ Predictions on unseen test data:
 
 
 ![demo1](https://github.com/s0mnaths/Guess-the-Birdie/blob/master/demo/demo1.png)
-![demo2](https://github.com/s0mnaths/Guess-the-Birdie/blob/master/demo/demo2.png)## Dataset 📂
-
-Dataset used for training is from Kaggle [BIRDS SPECIES IMAGE CLASSIFICATION](https://www.kaggle.com/gpiosenka/100-bird-species) which contains over 58000 training images of more than 300+ species.
-
-
+![demo2](https://github.com/s0mnaths/Guess-the-Birdie/blob/master/demo/demo2.png)
